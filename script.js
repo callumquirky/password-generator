@@ -97,15 +97,14 @@ let passwordLengthIsInteger = false;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
-  while (passwordLength < 8 || passwordLength > 164 || !Number.isInteger(parseInt(passwordLength))) {
+  do {
     passwordLength = prompt ("Please specify password length between 8 and 164 characters");
-	}
+	} while (passwordLength < 8 || passwordLength > 164 || !Number.isInteger(parseInt(passwordLength)))
 	hasSpecialCharacters = confirm("Do you want special characters in your password?");
 	hasNumericCharacters = confirm("Do you want numeric characters in your password?");
 	hasLowerCasedCharacters = confirm("Do you want lower cased characters in your password?");
 	hasUpperCasedCharacters = confirm("Do you want upper characters in your password?");
-}
+} 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -118,19 +117,18 @@ function generatePassword() {
   let generatedPassword = "";
   for (let i=0; i < passwordLength; i++){
     do {
-      let arraySelector = Math.floor(Math.random() * 3);
-
-      if (arraySelector = 0 && hasSpecialCharacters == true) {
+      let arraySelector = Math.floor(Math.random() * 4);
+      if (arraySelector === 0 && hasSpecialCharacters == true) {
         generatedPassword += getRandom(specialCharacters);
       }
-      if (arraySelector = 1 && hasNumericCharacters == true) {
+      if (arraySelector === 1 && hasNumericCharacters == true) {
         generatedPassword += getRandom(numericCharacters); 
       }
-      if (arraySelector = 2 && hasLowerCasedCharacters == true) {
+      if (arraySelector === 2 && hasLowerCasedCharacters == true) {
         generatedPassword += getRandom(lowerCasedCharacters);
       }
-      if (arraySelector = 3 && hasUpperCasedCharacters == true) {
-        generatedPassword += getRandom(lowerCasedCharacters);
+      if (arraySelector === 3 && hasUpperCasedCharacters == true) {
+        generatedPassword += getRandom(upperCasedCharacters);
       }
     }while(i===generatedPassword.length);
   }
