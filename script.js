@@ -98,10 +98,8 @@ let passwordLengthIsInteger = false;
 // Function to prompt user for password options
 function getPasswordOptions() {
 
-  while ((passwordLength < 8 || passwordLength > 164) || !Number.isInteger(passwordLength)) {
-		passwordLength = prompt ("Please specify password length between 8 and 164 characters");
-
-    
+  while (passwordLength < 8 || passwordLength > 164 || !Number.isInteger(parseInt(passwordLength))) {
+    passwordLength = prompt ("Please specify password length between 8 and 164 characters");
 	}
 	hasSpecialCharacters = confirm("Do you want special characters in your password?");
 	hasNumericCharacters = confirm("Do you want numeric characters in your password?");
@@ -128,7 +126,7 @@ function generatePassword() {
       if (arraySelector = 1 && hasNumericCharacters == true) {
         generatedPassword += getRandom(numericCharacters); 
       }
-      if (arraySelector = 2 && haslowerCasedCharacters == true) {
+      if (arraySelector = 2 && hasLowerCasedCharacters == true) {
         generatedPassword += getRandom(lowerCasedCharacters);
       }
       if (arraySelector = 3 && hasUpperCasedCharacters == true) {
