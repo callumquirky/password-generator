@@ -88,7 +88,7 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-let hasSepecialCharacters = true;
+let hasSpecialCharacters = true;
 let hasNumericCharacters = true;
 let hasLowerCasedCharacters = true;
 let hasUpperCasedCharacters = true;
@@ -117,17 +117,17 @@ function getRandom(arr) {
 function generatePassword() {
   let generatedPassword = ""
   for (let i=0; i < passwordLength; i++){
-    if (hasSpecialCharacters) == true {
+    if (hasSpecialCharacters == true) {
     generatedPassword =+ getRandom(specialCharacters);
     }
-    if (hasNumericCharacters) == true {
+    if (hasNumericCharacters == true) {
     generatedPassword =+ getRandom(numericCharacters); 
     }
-    if (haslowerCasedCharacters) == true {
+    if (haslowerCasedCharacters == true) {
     generatedPassword =+ getRandom(lowerCasedCharacters);
     }
-    if (hasUpperCasedCharacters) == true {
-    generatedPassword =+ getRandom(lowerCasedCharacters);
+    if (hasUpperCasedCharacters == true) {
+    generatedPassword += getRandom(lowerCasedCharacters);
     }
   return generatedPassword;
     }
@@ -145,4 +145,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', writePassword());
