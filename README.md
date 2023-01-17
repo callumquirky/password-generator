@@ -16,6 +16,8 @@ Once this has been completed, the application then displays the randomly generat
 
 ![generated password](/assets/generated-password.PNG)
 
+You can view the deployed application here: https://callumquirky.github.io/password-generator/
+
 ## License 
 
 This project uses a MIT license.
