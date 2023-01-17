@@ -93,7 +93,6 @@ let hasNumericCharacters = true;
 let hasLowerCasedCharacters = true;
 let hasUpperCasedCharacters = true;
 let passwordLength = 0;
-let passwordLengthIsInteger = false;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
