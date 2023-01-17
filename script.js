@@ -98,9 +98,10 @@ let passwordLengthIsInteger = false;
 // Function to prompt user for password options
 function getPasswordOptions() {
 
-  while (passwordLength < 8 && passwordLengthIsInteger == false) {
+  while ((passwordLength < 8 || passwordLength > 164) || !Number.isInteger(passwordLength)) {
 		passwordLength = prompt ("Please specify password length between 8 and 164 characters");
-		passwordLengthIsInteger = Number.isInteger(passwordLength)
+
+    
 	}
 	hasSpecialCharacters = confirm("Do you want special characters in your password?");
 	hasNumericCharacters = confirm("Do you want numeric characters in your password?");
@@ -110,8 +111,7 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  Math.floor(Math.random() * arr.length);
-  return;
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 // Function to generate password with user input
@@ -119,20 +119,24 @@ function generatePassword() {
   getPasswordOptions();
   let generatedPassword = "";
   for (let i=0; i < passwordLength; i++){
-    if (hasSpecialCharacters == true) {
-    generatedPassword =+ getRandom(specialCharacters);
-    }
-    if (hasNumericCharacters == true) {
-    generatedPassword =+ getRandom(numericCharacters); 
-    }
-    if (haslowerCasedCharacters == true) {
-    generatedPassword =+ getRandom(lowerCasedCharacters);
-    }
-    if (hasUpperCasedCharacters == true) {
-    generatedPassword += getRandom(lowerCasedCharacters);
-    }
+    do {
+      let arraySelector = Math.floor(Math.random() * 3);
+
+      if (arraySelector = 0 && hasSpecialCharacters == true) {
+        generatedPassword += getRandom(specialCharacters);
+      }
+      if (arraySelector = 1 && hasNumericCharacters == true) {
+        generatedPassword += getRandom(numericCharacters); 
+      }
+      if (arraySelector = 2 && haslowerCasedCharacters == true) {
+        generatedPassword += getRandom(lowerCasedCharacters);
+      }
+      if (arraySelector = 3 && hasUpperCasedCharacters == true) {
+        generatedPassword += getRandom(lowerCasedCharacters);
+      }
+    }while(i===generatedPassword.length);
+  }
   return generatedPassword;
-    }
 }
 
 // Get references to the #generate element
