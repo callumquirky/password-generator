@@ -93,11 +93,12 @@ let hasNumericCharacters = true;
 let hasLowerCasedCharacters = true;
 let hasUpperCasedCharacters = true;
 let passwordLength = 0;
-let passwordLengthIsInteger = true;
+let passwordLengthIsInteger = false;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  while (passwordLength < 10, passwordLengthIsInteger == false) {
+
+  while (passwordLength < 8 && passwordLengthIsInteger == false) {
 		passwordLength = prompt ("Please specify password length between 8 and 164 characters");
 		passwordLengthIsInteger = Number.isInteger(passwordLength)
 	}
@@ -115,7 +116,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  let generatedPassword = ""
+  getPasswordOptions();
+  let generatedPassword = "";
   for (let i=0; i < passwordLength; i++){
     if (hasSpecialCharacters == true) {
     generatedPassword =+ getRandom(specialCharacters);
@@ -145,4 +147,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword());
+generateBtn.addEventListener('click', writePassword);
