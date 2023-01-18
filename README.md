@@ -4,7 +4,7 @@
 
 This project is built using JavaScript and is based on taking the user's password preferences via prompts and confirms to generate them a secure, randomly generated password that they can copy from the page for their own use.
 
-After clicking the button, the user is prompted to enter their specified length between 8 and 164. The application features code to prevent the user from entering numbers less than 8 and greater than 164 in addition to input that aren't numbers. Any input not meeting this criteria results in the prompt being repeated until the conditions are satisfied.
+After clicking the button, the user is prompted to enter their specified length between 10 and 64. The application features code to prevent the user from entering numbers less than 10 and greater than 64 in addition to input that aren't numbers. Any input not meeting this criteria results in the prompt being repeated until the conditions are satisfied.
 
 ![length prompt](/assets/images/length-prompt.PNG)
 

@@ -97,8 +97,8 @@ let passwordLength = 0;
 // Function to prompt user for password options
 function getPasswordOptions() {
   do {
-    passwordLength = prompt ("Please specify password length between 8 and 164 characters");
-	} while (passwordLength < 8 || passwordLength > 164 || !Number.isInteger(parseInt(passwordLength)))
+    passwordLength = prompt ("Please specify password length between 10 and 64 characters");
+	} while (passwordLength < 10 || passwordLength > 64 || !Number.isInteger(parseInt(passwordLength)))
 	hasSpecialCharacters = confirm("Do you want special characters in your password?");
 	hasNumericCharacters = confirm("Do you want numeric characters in your password?");
 	hasLowerCasedCharacters = confirm("Do you want lower cased characters in your password?");
